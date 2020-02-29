@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿<!DOCTYPE html>
 
 <html>
@@ -1049,3 +1050,1056 @@
 
 </body>
 </html>
+=======
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="libs/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="libs/jquery.mobile.custom.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/a.css" />
+    <link rel="stylesheet" type="text/css" href="css/c.css" />
+    <link rel="stylesheet" type="text/css" href="css/b.css" />
+    <script>
+        $(document).ready(function () {
+            var currentDir;
+            var parentDir;
+            var rootDir;
+            var db;
+            var tx;
+            db = window.openDatabase("planNowak3ib", "1.0", "nazwa_wyswietlana", 1024 * 1024);
+            // alert("ver" + db.version)
+
+
+            db.transaction(utworz_tabele1,
+               function (tx, error) {
+                   //    alert("Error : " + error);
+               },
+               function () {
+                   //      alert("ok")
+               });
+
+            function utworz_tabele1(tx) {
+                tx.executeSql("CREATE TABLE IF NOT EXISTS tabela2 (id INTEGER PRIMARY KEY, odG VARCHAR(2),odM VARCHAR(2),doG VARCHAR(2),doM VARCHAR(2))");
+                tx.executeSql("CREATE TABLE IF NOT EXISTS dnitygodnia (id INTEGER PRIMARY KEY, krotka VARCHAR(2), dluga VARCHAR(2))");
+                tx.executeSql("CREATE TABLE IF NOT EXISTS przedmioty (krotka VARCHAR(2), dluga VARCHAR(2))");
+                tx.executeSql("CREATE TABLE IF NOT EXISTS nauczyciele (id INTEGER PRIMARY KEY, imie VARCHAR(2), nazwisko VARCHAR(2))");
+                tx.executeSql("CREATE TABLE IF NOT EXISTS plantyg (id INTEGER PRIMARY KEY,godzina VARCHAR2, sala VARCHAR(2), dt VARCHAR(2),np VARCHAR(2),nau VARCHAR(2))");
+
+            }
+            /*
+            SELECT przedmioty.krotka, plantyg.numerklasy 
+            FROM plantyg
+            LEFT JOIN przedmioty ON (plantyg.np = przedmioty.id) ;
+            */
+
+
+
+            //      tx.executeSql("SELECT przedmioty.krotka, plantyg.numerklasy FROM plantyg LEFT JOIN przedmioty ON (plantyg.np = przedmioty.id) ");
+
+
+
+
+
+            //wstawianie wierszy do TABEL
+            db.transaction(dodaj_rekordy,
+                 function (tx, error) {
+                     //    alert("Error przy wstawianiu rekordu: " + error);
+                 },
+                function () {
+                    // alert("rekordy wstawione");
+
+                });
+
+
+
+            function dodaj_rekordy(tx) {
+                //  for (var i = 0; i < 14; i++) {
+                // tx.executeSql("INSERT INTO dnitygodnia (krotka,dluga) VALUES ('Pon','Poniedzialek' )");
+                // for (var licznik = 0; licznik < dni_tygodnia.length;licznik++)            
+                //      tx.executeSql("INSERT INTO dnitygodnia (krotka,dluga) VALUES ('"+dni_tygodnia[licznik].krotka+"','"+dni_tygodnia[licznik].dluga +"')");
+                // tx.executeSql("INSERT INTO przedmioty (krotka,dluga) VALUES ( )");
+                // tx.executeSql("INSERT INTO nauczyciele (imie,nazwisko) VALUES ( )");
+                // tx.executeSql("INSERT INTO wszystko (sala,dt,np,nau) VALUES ( )");
+
+                // }
+
+                //   tx.executeSql("INSERT INTO tabela (id, odG, doG) VALUES (0, 'a', 'b')");
+            }
+
+
+            var kolorki = ['#121189', '#7738d1', '#9c0606', '#d94040', 'aquamarine', 'black', 'white', 'silver', 'grey'];
+          
+
+            var tablice=[];
+
+            db.transaction(tworz_tablice, onError);
+
+            function tworz_tablice(tx) {
+                tx.executeSql("SELECT * FROM dnitygodnia", [],
+                    function (tx, results) {
+
+                      //  alert("wierszy jest " + results.rows.length)
+
+                      //  alert("wiersz 1 " + results.rows.item(0).krotka)
+                        for (var j = 0; j < results.rows.length; j++) {
+                            // tab[j].id = results.rows[j].id
+                            //     tab[j].odG = results.rows[j].odG
+                            //     tab[j].odM = results.rows[j].odM
+                            //      tab[j].doG = results.rows[j].doG
+                            //       tab[j].doM = results.rows[j].doM
+                            tablice.push({ krotka: results.rows.item(j).krotka, dluga: results.rows.item(j).dluga })
+
+                        }
+                       
+                    },
+                    onError
+)
+
+            }
+
+
+
+
+
+
+
+
+
+            setInterval(function () {
+                var d = new Date();
+                //  console.log(d.toLocaleTimeString());
+                $("#Zegar").html(d.toLocaleTimeString());
+            }, 500)
+
+
+            $("#ust").click(function () {
+
+                // alert("TAAAP");
+                $("#ust1").toggleClass("animuj")
+
+            });
+
+            $("#dzisiaj").click(function () {
+                $("#dzisiaj1").toggleClass("animuj")
+            })
+
+            $("#dzisiaj1").swipeleft(function () {
+                $("#dzisiaj1").toggleClass("animuj")
+
+            })
+
+            $("#plan").click(function () {
+                $("#plan1").toggleClass("animuj")
+            })
+            $("#plan1").swipeleft(function () {
+                $("#plan1").toggleClass("animuj")
+            })
+
+
+
+
+            $("#ust1").swipeleft(function () {
+                $("#ust1").toggleClass("animuj")
+            })
+            $("#powrot").click(function () {
+                $("#ust1").toggleClass("animuj");
+            })
+
+
+
+            $("#godz").click(function () {
+
+                
+                $("#godz1").toggleClass("animuj")
+                
+            });
+
+            $("#godz1").swipeleft(function () {
+                $("#godz1").toggleClass("animuj")
+            })
+
+
+            $("#kolornik").tap(function () {
+                $("#kolornik_panel").toggleClass('animuj')
+            })
+            $("#kolornik_panel").swipeleft(function () {
+                $("#kolornik_panel").toggleClass('animuj')
+            })
+
+            $("#menadzer_plikow").tap(function () {
+                $("#System_Plikow").toggleClass('animuj')
+            })
+            $('#System_Plikow').swipeleft(function () {
+                $('#System_Plikow').toggleClass('animuj')
+            })
+            var czy_font;
+
+            for (var i = 0; i < kolorki.length ; i++) {
+                var kolorek = $("<div>").css('background-color', kolorki[i])
+                kolorek.width(33 + 'vw')
+                kolorek.height(33 + 'vw')
+                kolorek.css('display', 'inline-block')
+                kolorek.tap(function () {
+                    if (czy_font != 'Font') {
+                        $('.' + zmienna_kolor).css('background-color', $(this).css('background-color'))
+                    }
+                    else
+                        $('#body').css('color',$(this).css('background-color'))
+                })
+                $("#kolorkii").append(kolorek)
+            }
+
+            var ustawienia_tablica = ['Kolor 1', 'Kolor 2', 'Menu'];
+            var klasy_tablica=['ustawienia','ustawienia1','menu_kolor']
+            var zmienna_kolor;
+            for (var i = 0; i < ustawienia_tablica.length ; i++) {
+                var el_kol = $("<div>").html(ustawienia_tablica[i])
+                el_kol.width(50 + 'vw')
+                el_kol.height(40 + 'vw')
+                el_kol.attr('class', klasy_tablica[i])
+                el_kol.css('display', 'block')
+                el_kol.css('float', 'left')
+                el_kol.css("text-align",'center')
+                el_kol.tap(function () {
+                    czy_font=$(this).html()
+                    zmienna_kolor=$(this).attr('class')
+                    $('#kolorkii').toggleClass('animuj')
+                })
+                $("#kolornik_panel").append(el_kol)
+            }
+
+            var fontcolor = $("<div>").html('Font')
+            fontcolor.attr('class', 'ustawienia')
+            fontcolor.tap(function () {
+                $('#kolorkii').toggleClass('animuj')
+                czy_font = $(this).html()
+            })
+
+        $("#kolornik_panel").append(fontcolor)
+
+
+
+
+
+            $("#kolorkii").swipeleft(function () {
+                $('#kolorkii').toggleClass('animuj')
+            })
+
+            var godziny2 = [];
+            db.transaction(pobierz_dane2, onError);
+
+            function pobierz_dane2(tx) {
+                tx.executeSql("SELECT * FROM tabela2", [],
+                    function (tx, results) {
+                        //alert("wierszy jest " + results.rows.length)
+                        for (var j = 0; j < 14; j++) {
+
+                            godziny2.push({ odG: results.rows.item(j).odG, odM: results.rows.item(j).odM, doG: results.rows.item(j).doG, doM: results.rows.item(j).doM, id: results.rows.item(j).id })
+                        }
+                       // alert(results.rows[0].id)
+                    },
+                    onError
+                  )
+            }
+            function onError(error) {
+                alert("problem z czytaniem: " + error);
+            };
+
+
+
+
+            $("#btw").click(function () {
+                db.transaction(dodaj_rekord,
+                 function (tx, error) {
+                     alert("Error przy wstawianiu rekordu: " + error);
+                 },
+                function () {
+                    alert("rekordy wstawione");
+
+                });
+
+
+
+                function dodaj_rekord(tx) {
+                    for (var i = 0; i < 14; i++) {
+                        tx.executeSql("INSERT INTO tabela2 (odG, odM,doG,doM) VALUES ( '00', '00','00','00')");
+                    }
+                    for (var licznik = 0; licznik < dni_tygodnia.length; licznik++)
+                        tx.executeSql("INSERT INTO dnitygodnia (krotka,dluga) VALUES ('" + dni_tygodnia[licznik].krotka + "','" + dni_tygodnia[licznik].dluga + "')");
+                    for (var licznik = 0; licznik < przedmioty.length; licznik++)
+                        tx.executeSql("INSERT INTO przedmioty (krotka,dluga) VALUES ('" + przedmioty[licznik].krotka + "','" + przedmioty[licznik].dluga + "')");
+
+                    //   tx.executeSql("INSERT INTO tabela (id, odG, doG) VALUES (0, 'a', 'b')");
+                }
+
+            })
+
+
+
+
+
+            $("#btu").click(function () {
+                db.transaction(usun_rekord,
+                function (tx, error) {
+                    alert("Error przy usuwaniu rekordu: " + error);
+                },
+               function () {
+                   alert("rekordy usuniete");
+
+               });
+
+                function usun_rekord(tx) {
+                    tx.executeSql("DELETE FROM tabela2");
+                    tx.executeSql("DELETE FROM dnitygodnia");
+                }
+            })
+       //     var tab = [{ id: "", odG: "", odM: "", doG: "", doM: "", }]
+            $("#btp").click(function () {
+                db.transaction(pobierz_dane, onError);
+
+                function pobierz_dane(tx) {
+                    tx.executeSql("SELECT * FROM tabela2", [],
+                        function (tx, results) {
+
+                           // alert("wierszy jest " + results.rows.length)
+
+                            //alert("wiersz 1 " + results.rows[0].odG)
+                            for (var j = 0; j < results.rows.length; j++) {
+                                // tab[j].id = results.rows[j].id
+                                //     tab[j].odG = results.rows[j].odG
+                                //     tab[j].odM = results.rows[j].odM
+                                //      tab[j].doG = results.rows[j].doG
+                                //       tab[j].doM = results.rows[j].doM
+                            }
+                        },
+                        onError
+    )
+                }
+
+                function onError(error) {
+                    alert("problem z czytaniem: " + error);
+                };
+
+
+            })
+            $("#wstgu").tap(function () {
+             
+                $("#godzinytabela").empty();
+            })
+
+            $("#wstg").click(function () {
+
+                
+
+
+
+                for (var k = 0; k < 14; k++) {
+                    row = $("<tr>");
+                    $("#godzinytabela").append(row);
+                    cell0 = $("<td>").html(k+1)               
+
+                    $(cell0).addClass("klasa0")
+                                        
+                        .width(15+'vw')                
+                    cell0.css("display", "inline-block");
+                    row.append(cell0);
+
+                    cell = $("<td>").html(godziny2[k].odG + '.' + godziny2[k].odM)  
+                    $(cell).addClass("klasa")                
+                    .width(40+'vw')           
+                    .attr('id','td1_'+k)
+                    cell.css("display", "inline-block")
+                    cell.tap(function(){
+                        $("#godziny_picker").toggleClass("animuj")                     
+                        id_godziny = $(this).attr('id');
+                        index_td = $(this).index();
+                        index_tr = $(this).parent().index();
+                    })
+                    row.append(cell);
+
+
+
+                    cell2 = $("<td>").html(godziny2[k].doG + '.' + godziny2[k].doM)
+                    $(cell2).addClass("klasa2")
+                  
+                    .width(40 + 'vw')
+             
+                     .attr('id', 'td2_' + k);
+                    cell2.css("padding", "0px");
+                  
+                    cell2.css("display", "inline-block");
+                    cell2.tap(function(){
+                        $("#godziny_picker").toggleClass("animuj")
+                        index_td = $(this).index();
+                        id_godziny = $(this).attr('id');
+                        index_tr = $(this).parent().index();
+                    })
+                    row.append(cell2);
+                }
+
+
+            })
+            var index_td;
+            var index_tr;
+            var godziny_tab = ['07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
+            var godzina;
+            var minuta;
+            var index_godziny;
+            var id_godziny;
+            for(var i=0;i<=13;i++){
+                var godziny = $("<div>").html(godziny_tab[i]);
+                $(godziny).addClass("picker")
+                .width(20+'vw')
+                .height(20+'vw')
+                .css("background-color", "white")
+                .css('display', 'inline-block')
+                .css('text-align','center')
+                godziny.tap(function(){
+                    godzina = $(this).html();
+                    
+                })
+                
+                $("#godziny_picker").append(godziny)
+                if (i == 13) {
+                    $("#godziny_picker").append("<br />");
+                }
+            }
+
+            
+            var minuty_tab = ['00', '05', '10', '15', '20', '25','30', '35', '40', '45', '50', '55'];
+            for (var i = 0; i <= 11; i++) {
+                var minuty = $("<div>").html(minuty_tab[i]);
+                $(minuty).addClass("picker")
+                .width(20 + 'vw')
+                .height(20 + 'vw')
+                .css('background-color', 'silver')
+                .css('display', 'inline-block')
+                .css('text-align','center')
+                minuty.tap(function () {
+                    minuta = $(this).html();
+                  
+                })
+                $("#godziny_picker").append(minuty)
+
+            }
+
+
+            $("#picker_ok").tap(function () {
+                
+                $('#' + id_godziny).html(godzina + ':' + minuta);
+                if (index_td == 1) {
+                    godziny2[index_tr].odG = godzina;
+                    godziny2[index_tr].odM = minuta;
+
+                    db.transaction(update, onDBError);
+                    //
+                    function update(tx) {
+
+                        tx.executeSql("UPDATE tabela2 SET odG = "+godzina+",odM = "+minuta +" WHERE id =" +(index_tr+1)+";",
+                            [],
+                             function () {
+                                 alert("godzina zaktualizowana")
+                             },
+                             function (tx, error) {
+                                 alert("Error przy aktualizacji godziny: " + error);
+
+                             }
+                         );
+                    }
+
+                    function onDBError(error) {
+                        alert("problem z czytaniem: " + error.code);
+                    }
+
+
+
+
+                }
+                if (index_td == 2) {
+                    godziny2[index_tr].doG = godzina;
+                    godziny2[index_tr].doM = minuta;
+
+
+                    db.transaction(update, onDBError);
+                    //
+                    function update(tx) {
+
+                        tx.executeSql("UPDATE tabela2 SET doG = " + godzina + ",doM = " + minuta + " WHERE id =" + (index_tr + 1) + ";",
+                            [],
+                             function () {
+                                 alert("godzina zaktualizowana")
+                             },
+                             function (tx, error) {
+                                 alert("Error przy aktualizacji godziny: " + error);
+
+                             }
+                         );
+                    }
+
+                    function onDBError(error) {
+                        alert("problem z czytaniem: " + error.code);
+                    }
+
+
+
+                }
+
+                $("#godziny_picker").toggleClass("animuj");
+            })
+            $("#picker_anuluj").tap(function () {
+                $("#godziny_picker").toggleClass("animuj");
+            })
+
+
+            var kr;
+            var dl;
+           
+
+
+
+            $("#dod_przed").tap(function () {
+                 kr = prompt("Podaj nazwę krótką");
+                 dl = prompt("Podaj nazwę długą");
+
+                db.transaction(dodaj_rekordp,
+                     function (tx, error) {
+                         alert("Error przy wstawianiu rekordu: " + error);
+                     },
+                    function () {
+                        alert("rekordy wstawione");
+
+                    });
+
+                function dodaj_rekordp(tx) {
+                    tx.executeSql("INSERT INTO przedmioty (krotka, dluga) VALUES ('" + kr + "','" + dl + "')");
+
+                }
+            })
+
+            var z_przed;
+            
+            $("#usu_przed").tap(function () {
+                $("#przedmioty_panel").toggleClass("animuj");
+
+
+                db.transaction(pobierz_dane3, onError);
+
+                function pobierz_dane3(tx) {
+                    tx.executeSql("SELECT * FROM przedmioty", [],
+                        function (tx, results) {
+                            alert("wierszy jest " + results.rows.length)
+                            for (var j = 0; j < results.rows.length; j++) {
+                                var prd = $("<div>").html(results.rows.item(j).dluga)
+                                prd.width(100 + 'vw')
+                                prd.css('color', 'white');
+                                prd.css('background-color', "brown");
+                               // prd.attr("id", results.rows[j].dluga)
+                                $(prd).attr("id",results.rows.item(j).dluga)
+                               $(prd).tap(function () {
+                                    var del = $(this).attr("id")//.split(",").splice(1, 3);
+
+                                  alert(del)
+                                    console.log($(this).html())
+                                    db.transaction(usun_rekordp,
+                                      function (tx, error) {
+                                          alert("Error przy usuwaniu rekordu: " + error);
+                                      },
+                                       function () {
+                                           alert("rekordy usuniete");
+                                       });
+                                    function usun_rekordp(tx) {
+                                        tx.executeSql("DELETE FROM przedmioty WHERE dluga='"+del+"'")
+                                        //"+$(this).html()+"'");                                      
+                                   //     tx.executeSql("DELETE FROM przedmioty WHERE krotka='a'");
+                                    }
+                                    $(this).empty();
+                                }  )                
+                                $("#przedmioty_panel").append(prd);
+                                
+
+
+                            }
+                        })
+                }
+            })                     
+              
+                function onError(error) {
+                    alert("problem z czytaniem: " + error);
+                };
+
+
+
+
+
+
+
+
+         //   })
+            
+            $('#powrot_przedmioty').tap(function () {
+                $("#przedmioty_panel").toggleClass('animuj');
+            })
+
+
+
+
+
+
+
+
+
+
+
+
+           
+
+
+            var dni_tygodnia = [
+                { krotka: "Pon", dluga: "Poniedzialek" },
+                { krotka: "Wt", dluga: "Wtorek" },
+                { krotka: "Sr", dluga: "Sroda" },
+                { krotka: "Czw", dluga: "Czwartek" },
+                { krotka: "Pt", dluga: "Piatek" },
+            ]
+
+            var przedmioty = [
+                 { krotka: "Mat", dluga: "Matematyka" },
+                 { krotka: "Fiz", dluga: "Fizyka" },
+                 { krotka: "Ang", dluga: "Angielski" },
+            ]
+
+            $("#btwp").click(function () {
+                db.transaction(wstPLAN,
+                 function (tx, error) {
+                     alert("Error przy wstawianiu rekordu: " + error);
+                 },
+                function () {
+                    alert("rekordy wstawione");
+
+                });
+            })
+
+            var tx;
+            function wstPLAN(tx) {
+
+                for (var ik = 1; ik < 6; ik++) {
+                    for (var jk = 1; jk < 15; jk++) {
+                        tx.executeSql("INSERT INTO plantyg (godzina,sala,dt,np,nau) VALUES (" + jk + ",0," + ik + ",0,0)")
+                    }
+                }
+            }
+
+
+
+
+
+
+
+
+            $("#paneldzisiaj").click(function () {
+                for (var k = 1; k < 15; k++) {
+                    row = $("<tr>");
+                    $("#dzisiajtabela").append(row);
+                    cell0 = $("<td>").html(k)
+                    //  $(cell0).addClass("klasa")
+
+                    $(cell0).addClass("klasa0")
+                    .height(20)
+                        .width(100)
+                        .css("font-size", "20px");
+                    cell0.css("display", "inline-block");
+                    row.append(cell0);
+                    cell = $("<td>").html("-----/s.")
+                    $(cell).addClass("klasa")
+                       .height(20)
+                       .width(100)
+                       .css("font-size", "20px");
+                    cell.css("display", "inline-block");
+                    row.append(cell);
+
+                }
+            });
+
+
+            document.addEventListener("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+
+                //   db = window.openDatabase("planNazwiskoKlasa", "1.0", "nazwa_wyswietlana", 1024 * 1024);
+                //db = window.openDatabase("name", "version", "displayname", "size");
+                //  alert("ver" + db.version)
+
+            //    alert("KKKKKKKKKKK")
+                //window.requestFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
+
+                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
+                    function (fileSystem) {
+                        //mozliwe do uzyskanie dane - sukces
+                     //   alert("filesystem działa")
+                        console.log(fileSystem.root); 		// obiekt systemu plików
+                        console.log(fileSystem.root.name); 	// jego nazwa
+                        console.log(fileSystem.root.fullPath); //sciezka w emulatorze
+                        console.log(fileSystem.name); 		// typ
+                        console.log(fileSystem.root.isDirectory); //czy katalog
+                        console.log(fileSystem.root.isFile); 	//czy plik
+                        currentDir = fileSystem.root;
+                        parentDir = fileSystem.root;
+                        rootDir = fileSystem.root;
+                 //       alert(currentDir.name);
+                        //teraz funkcja listująca zawartość systemu plików:
+                        //do niej przekazujemy obiekt fileSystem.root
+
+                        wylistuj_foldery_i_pliki(currentDir);
+
+                    }, function (e) {
+                        alert("błąd odczytu systemu plików: " + e);
+                    });
+                function wylistuj_foldery_i_pliki(entry) {
+                    if (!entry.isDirectory) {
+                        alert("to nie katalog - nie da się wylistować");
+                    } else {
+                        //tworze readera katalogu - DirectoryReader (patrz dokumentacja)
+
+                        var reader = entry.createReader();
+                        //czytam
+                        reader.readEntries(readDirSuccess, readDirError);
+
+                    }
+                }
+                function readDirSuccess(entries) {
+                    $("#System_Plikow").empty()
+
+
+                    console.log(entries.length); // ilośc -> jeśli 0 to mamy pusty katalog
+                    console.log(entries[1].name)
+                    //wyczysc zawartośc div-a w którym pokażesz katalogi - czyli kolejne divy z odpowiednimi obrazkami
+                    //dodaj do niego najpierw katalogi a potem pliki
+                    var powrot = $("<div>").html("POWRÓT")
+                    $(powrot).height(10 + "vh")
+                    $(powrot).width(50 + 'vw')
+                    $(powrot).css("background-color", "#000000")
+                    $(powrot).css("color", "#ffffff")
+                    $(powrot).css("float", "left")
+                    $(powrot).tap(function () {
+
+                        currentDir.getParent(function (dir) {
+                            parentDir = dir
+                            currentDir = dir
+                            wylistuj_foldery_i_pliki(parentDir)
+                        }, function (e) { })
+                    })
+
+
+                    $("#System_Plikow").append(powrot)
+
+/*
+                               var home = $("<div>").html("Home")
+                                    $(home).height(10 + "vh")
+                             
+                                    $(home).width(50 + 'vw')
+                                    $(home).css("background-color", "#000000")
+                                    $(home).css("color", "yellow")
+                                    $(home).css("float","right")
+                                    $(home).tap(function () {
+                                        currentDir = rootDir
+                                        wylistuj_foldery_i_pliki(rootDir)
+            
+                                    })
+                                    $("#System_Plikow").append(home) */
+                                  
+                    var archiw;
+                    for (var i = 0; i < entries.length; i++) {
+
+                        if (entries[i].isDirectory == true) {
+
+                            var div = $("<div>").html("<img src='katalog1.png' alt='omg' class='obrazki' />" + " " + entries[i].name);
+                            $(div).addClass("KlasaSystem")
+                            .height(10 + 'vh')
+                            .width(100 + 'vw')
+                            .css("font-size", "5vh")
+                            .attr("title", entries[i].name)
+                                .attr('display','block')
+                            .tap(function () {
+                                // alert($(this).attr('title'))
+                                currentDir.getDirectory($(this).attr('title'), { create: false }, function (dir) {
+
+                                    currentDir = dir
+                                //    alert(currentDir.name)
+                                    wylistuj_foldery_i_pliki(currentDir)
+                                  //  alert(entries[0].name)
+                                }, function (e) { })
+                            })
+
+
+                            .taphold(function () {
+                                currentDir.getDirectory($(this).attr('title'), { create: false }, function (dir) {
+
+                                    archiw = dir
+                                    alert(archiw.name)
+                                    //  wylistuj_foldery_i_pliki(currentDir)
+                                    // alert(entries[0].name)
+                                }, function (e) { })
+
+
+
+
+                                archiw.getFile("nazwa_backupu.txt", { create: true, exclusive: false },
+                                                       function (fileEntry) {
+                                                           fileEntry.createWriter(function (writer) {
+                                                               writer.onwriteend = function () {
+                                                                   alert("backup zakończony");
+                                                               };
+                                                               writer.write(JSON.stringify(allTablesj, null, 4));
+                                                           }, onError);
+                                                       }, onErrror);
+
+                            }
+                        )
+                            //     div.css("font-color", "white");
+                            div.css("border-bottom", "1px solid black")
+                            div.css("background-color", " #003300")
+                            $("#System_Plikow").append(div)
+
+
+                        }
+                    };
+                    for (var i = 0; i < entries.length; i++) {
+                        if (entries[i].isFile == true) {
+                            var div = $("<div>").html("<img src='plik1.png' alt='omg' class='obrazki' />" + " " + entries[i].name);
+                            $(div).addClass("KlasaSystem")
+                            .height(10 + 'vh')
+                            .width(100 + 'vw')
+                            .css("font-size", "5vh")
+                            .attr("title", entries[i].name)
+                                 .attr('display', 'block')
+                            .tap(function () {
+                                alert($(this).attr('title'))
+                            })
+                            /* .taphold(function () {
+                               $(this).getFile("nazwa_backupu.txt", { create: true, exclusive: false },
+                                                        function (fileEntry) {
+                                                            fileEntry.createWriter(function (writer) {
+                                                                writer.onwriteend = function () {
+                                                                    alert("backup zakończony");
+                                                                };
+                                                                writer.write(JSON.stringify(allTablesj, null, 4));
+                                                            }, onError);
+                                                        }, onErrror);
+ 
+                             }) */
+
+
+                            //     div.css("font-color", "white");
+                            div.css("border-bottom", "1px solid black")
+                            div.css("background-color", " #003300")
+                            $("#System_Plikow").append(div)
+                            console.log("PLIK")
+
+                        }
+
+                    }
+
+
+                }
+
+                function readDirError(e) {
+                    alert("błąd " + e);
+                }
+
+
+
+
+
+
+
+
+            }
+
+            var tablicaLekcje = [
+
+                { id: "Jan", imie: "Jan", nazwisko: "Kowalski" },
+                { id: "Anna", imie: "Anna", nazwisko: "Nowak" },
+                { id: "Piotr", imie: "Piotr", nazwisko: "Iks" }
+
+            ]
+
+            var allTablesj = {
+                tabLek: tablice
+            }
+            // JSON.stringify(allTables, null, 4)
+
+
+            function onErrror() {
+                alert("tracisz czas")
+            }
+
+
+
+            $("#kam").click(function () {
+                $("#kam1").toggleClass("animuj")
+            })
+
+            $("#kam1").swipeleft(function () {
+                $("#kam1").toggleClass("animuj")
+            })
+            $("#powrot_kamera").click(function () {
+                $("#kam1").toggleClass("animuj")
+            })
+
+
+
+
+            $("#zdj").click(function () {
+                var camOptions = {
+                    quality: 50, // jakość zdjęcia
+                    destinationType: Camera.DestinationType.FILE_URI, // otrzymamy adres zdjęcia
+                    sourceType: Camera.PictureSourceType.CAMERA // lub Camera.PictureSourceType.PHOTOLIBRARY  dla galerii 
+
+                };
+
+                navigator.camera.getPicture(
+                     camSuccess,
+                     camError,
+                    camOptions);
+
+
+                function camSuccess(fileUri) {
+                    alert(fileUri)
+                    //otrzymany powyżej adres obrazka (fileUri)
+                    // wstaw  w odpowiednich ekranach do img lub div-ów
+                    $("#kam1").css("background-image", "url(" + fileUri + ")")
+                    $("#kam").css("background-image", "url(" + fileUri + ")")
+                    $("body").css("background-image", "url(" + fileUri + ")")
+                }
+
+                //error
+
+                function camError(error) {
+                    (error)
+                }
+
+
+            })
+
+
+            $("#gal").click(function () {
+                var camOptions = {
+                    quality: 50, // jakość zdjęcia
+                    destinationType: Camera.DestinationType.FILE_URI, // otrzymamy adres zdjęcia
+                    sourceType: Camera.PictureSourceType.PHOTOLIBRARY
+
+                };
+
+                navigator.camera.getPicture(
+                     camSuccess,
+                     camError,
+                    camOptions);
+
+
+                function camSuccess(fileUri) {
+                    alert(fileUri)
+                    //otrzymany powyżej adres obrazka (fileUri)
+                    // wstaw  w odpowiednich ekranach do img lub div-ów
+                    $("#kam1").css("background-image", "url(" + fileUri + ")")
+                    $("#kam").css("background-image", "url(" + fileUri + ")")
+                    $("body").css("background-image", "url(" + fileUri + ")")
+                }
+
+                //error
+
+                function camError(error) {
+                    (error)
+                }
+
+            })
+
+
+
+        })
+
+
+
+
+    </script>
+
+    <title>Plan Lekcji</title>
+</head>
+<body id="body">
+    
+    <div id="Zegar"></div>
+    <input type="button" value="wstaw rekordy" id="btw" />
+    <input type="button" value="usun rekordy" id="btu" />
+    <input type="button" value="pobierz rekordy" id="btp" />
+    <input type="button" value="wstplan" id="btwp" />
+    <input type="button" value="Uzupełnij panel dzisiaj" id="paneldzisiaj" />
+    <input type="button" value="Uzupełnij panel plan tygodnia" id="paneltydzien" />
+
+    <div id="Menu">
+        <div id="ust" class="menu_kolor">Ustawienia</div>
+        <div id="dzisiaj" class="menu_kolor">Dzisiaj</div>
+        <div id="plan" class="menu_kolor">Tydzień</div>
+    </div>
+    <div id="ust1">
+   
+        <div id="powrot">Powrót</div>
+        <div id="godz" class="ustawienia1">Godziny</div>
+   
+        <div id="wstg" class="ustawienia">Wstaw Godziny</div>
+        <div id="wstgu" class="ustawienia">Usuń godziny</div>
+        
+        <div id="kam" class="ustawienia1">Kamera</div>
+        <div id="dod_przed" class="ustawienia1">Dodaj Przedmiot</div>
+        <div id="usu_przed" class="ustawienia">Usuń Przedmiot</div>
+        <div id="kolornik" class="ustawienia">Kolornik</div>
+        <div id="menadzer_plikow" class="ustawienia1">Menadżer Plików</div>
+    </div>
+
+    <div id="kam1">
+        <div id="powrot_kamera"><--</div>
+        <div id="zdj" class="klasaZdj">Zrob zdjecie</div>
+        <div id="gal" class="klasaZdj">Galeria</div>
+    </div>
+
+
+
+    <div id="godz1">
+        <table id="godzinytabela"></table>
+    </div>
+    <div id="dzisiaj1">
+        <table id="dzisiajtabela"></table>
+    </div>
+    <div id="plan1">
+        <table id="plantydzien"></table>
+    
+    </div>
+    <div id="kolornik_panel">
+        <div id="kolorkii"></div>
+    </div>
+    <div id="godziny_picker">
+        <div id="picker_anuluj">ANULUJ</div>
+        <div id="picker_ok">POTWIERDŹ</div>
+
+    </div>
+    <div id="przedmioty_panel">
+        <div id="powrot_przedmioty">Powrót</div>
+    </div>
+    
+    <div id="System_Plikow">
+       
+
+    </div>
+
+
+    <script type="text/javascript" src="cordova.js"></script>
+
+</body>
+</html>
+>>>>>>> 7780897e3c05ad584d10e9aba621b7e1cc246ea4

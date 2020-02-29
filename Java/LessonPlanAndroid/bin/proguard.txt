@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 # view AndroidManifest.xml #generated:52
 -keep class com.nowak.projekty.planlekcji.planlekcji { <init>(...); }
 
+=======
+# view AndroidManifest.xml #generated:52
+-keep class com.nowak.projekty.planlekcji.planlekcji { <init>(...); }
+
+>>>>>>> 7780897e3c05ad584d10e9aba621b7e1cc246ea4

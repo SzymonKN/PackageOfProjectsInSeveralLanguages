@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
 font-family: 'Arbutus Slab', sans-serif;
 font-size:5vw;
@@ -71,4 +72,79 @@ tr{
 }
 .menu_kolor{
     background-color:silver;
+=======
+body{
+font-family: 'Arbutus Slab', sans-serif;
+font-size:5vw;
+}
+
+#picker_anuluj{
+    float:left;
+     width:45vw;
+      height:10vh ;
+      text-align:center ;
+      display:inline-block ;
+      background-color:black ;
+      color:white;
+}
+#picker_ok{
+    float:right;
+     width:45vw;
+      height:10vh ;
+      text-align:center ;
+      display:inline-block ;
+      background-color:grey ;
+     
+}
+.ustawienia{
+    width:50vw;
+    height:40vw;
+    text-align:center;
+    background-color:aquamarine;
+    display:inline-block;
+    float:left;
+}
+.ustawienia1{
+    width:50vw;
+    height:40vw;
+    text-align:center;
+    background-color:darkgray;
+    display:inline-block;
+    float:left;
+}
+#powrot{
+    display:block;
+      background-color:black;
+      color:white;
+      width:100vw;
+}
+.klasa {
+    background-color:#443c3c;
+     color:#ffffff;
+     text-align:center;
+     margin:0;
+     height:7vh;
+}
+.klasa2{
+    background-color:#4d3636;
+     color:#ffffff;
+      text-align:center;
+      margin:0;
+      height:7vh;
+}
+.klasa0{
+    background-color:#370b0b;
+    color:#ffffff;
+     text-align:center;
+     margin:0;
+     height:7vh;
+}
+tr{
+    height:7vh;
+    padding:0;
+    margin:0;
+}
+.menu_kolor{
+    background-color:silver;
+>>>>>>> 7780897e3c05ad584d10e9aba621b7e1cc246ea4
 }

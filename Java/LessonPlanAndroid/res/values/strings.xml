@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SzymonNowak-PlanLekcji</string>
 </resources>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SzymonNowak-PlanLekcji</string>
+</resources>
+>>>>>>> 7780897e3c05ad584d10e9aba621b7e1cc246ea4

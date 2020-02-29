@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        *{margin:0;
+          padding:0;
+        }
+    </style>
+    <title>Helikoptr</title>
+    <script type="text/javascript" src="three.js"></script>
+    <script type="text/javascript" src="Main.js"></script>
+
+
+     <script type="text/javascript" src="screens/StartScreen.js"></script>
+    <script type="text/javascript" src="screens/MenuScreen.js"></script>
+    <script type="text/javascript" src="screens/KokpitScreen.js"></script>
+
+     <script type="text/javascript" src="ui/MenuButton.js"></script>
+       <script type="text/javascript" src="ui/Slider.js"></script>
+
+
+    <script type="text/javascript" src="core/Materials.js"></script>
+    <script type="text/javascript" src="core/TrybyKamery.js"></script>
+    <script type="text/javascript" src="core/KontrolerKamery.js"></script>
+
+
+    <script type="text/javascript" src="players/Helikopter.js"></script> 
+    <script type="text/javascript" src="players/Helikopter2.js"></script>
+     <script type="text/javascript" src="players/SkyBox.js"></script>
+    <script type="text/javascript" src="players/Buildings.js"></script>
+
+
+    <script type="text/javascript" src="ColladaLoader.js"></script>
+<script>
+    var main;
+    window.addEventListener("load", function () {
+        main = new Main();
+    });
+
+</script>
+
+</head>
+<body>
+    <div id="content"></div>
+    <img src="gfx/c.png" id="roza" style="width:100px;height:100px;" />
+</body>
+</html>

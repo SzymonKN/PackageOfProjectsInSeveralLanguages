@@ -1,0 +1,242 @@
+#dzisiaj1 {
+            width: 100vw;
+            height: 100vh;
+            background: #006666;
+            position: fixed;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+        } 
+
+#plan1 {
+            width: 100vw;
+            height: 100vh;
+            background: #003333;
+            position: fixed;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+        } 
+
+	
+
+#godz1 {
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+        }
+		
+		 #godz1.animuj {
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+ }
+
+#dzisiaj1.animuj{
+ -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+#plan1.animuj{
+ -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+
+ .klasa{display:block;}
+#System_Plikow {
+    overflow:scroll;
+    height:100vh;
+}
+.KlasaSystem {
+color:#fff;
+}
+
+
+
+#kam {
+    width:50vw;
+    height:40vw;
+    
+    color:#003333;
+
+}
+.klasaZdj {
+      width:50vw;
+    height:20vh;
+    background-color:#0ff;
+    color:#003333;
+    display:inline-block;
+    float:left;
+}
+#kam1 {
+            width: 100vw;
+            height: 100vh;
+            background: #00ff00;
+            position: fixed;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+        }
+#kam1.animuj{
+ -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+
+#powrot_kamera {
+    width:100vw;
+    height:10vh;
+    background-color:#000000;
+    color:#ffffff;
+}
+.obrazki {
+height:9vh;
+}
+#menu_sys {
+display:block;
+width:100vw;
+height:11vh;
+}
+
+
+#godziny_picker{
+            width: 100vw;
+            height: 100vh;
+            background: #441919;
+            position: fixed;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+             overflow:scroll;
+}
+#godziny_picker.animuj{
+     -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+#przedmioty_panel {
+    width: 100vw;
+            height: 100vh;
+            background: #000000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+
+}
+#przedmioty_panel.animuj{
+    -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+#powrot_przedmioty{
+    width:100vw;
+    color:white;
+
+}
+
+#kolornik_panel{
+    width: 100vw;
+            height: 100vh;
+            background: #000000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+
+}
+#kolornik_panel.animuj{
+    -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+
+}
+#System_Plikow{
+     width: 100vw;
+            height: 100vh;
+            background: #000000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+}
+#System_Plikow.animuj{
+     -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+
+#kolorkii{
+    width: 100vw;
+            height: 100vh;
+            background: #000000;
+            position: fixed;
+            left: 0;
+            top: 0;
+            -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0);
+            -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+}
+#kolorkii.animuj{
+     -webkit-transition-duration: .5s;
+            transition-duration: .5s;
+            animation-timing-function: ease-in;
+            -webkit-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+}
+}

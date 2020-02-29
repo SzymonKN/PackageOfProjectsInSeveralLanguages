@@ -1,0 +1,22 @@
+c:\users\nowak szymon\documents\visual studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\LokalnaKsiazkaAdresowa.exe.config
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\AddresBook.mdf
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\AddresBook_log.ldf
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\LokalnaKsiazkaAdresowa.exe
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\LokalnaKsiazkaAdresowa.pdb
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.csprojResolveAssemblyReference.cache
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.Form1.resources
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.Properties.Resources.resources
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.csproj.GenerateResource.Cache
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.exe
+C:\Users\Nowak Szymon\Documents\Visual Studio 2013\Projects\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.pdb
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\LokalnaKsiazkaAdresowa.exe.config
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.exe
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.pdb
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\AddresBook.mdf
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\AddresBook_log.ldf
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\LokalnaKsiazkaAdresowa.exe
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\bin\Debug\LokalnaKsiazkaAdresowa.pdb
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.csprojResolveAssemblyReference.cache
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.Form1.resources
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.Properties.Resources.resources
+G:\P.Koszałka\LokalnaKsiazkaAdresowa\LokalnaKsiazkaAdresowa\obj\Debug\LokalnaKsiazkaAdresowa.csproj.GenerateResource.Cache

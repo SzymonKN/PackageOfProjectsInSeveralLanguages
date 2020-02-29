@@ -1,0 +1,8 @@
+C:\Users\Szymon1\Desktop\komunikator\Klient\Klient\obj\Release\Klient.exe
+C:\Users\Szymon1\Desktop\komunikator\Klient\Klient\obj\Release\Klient.pdb
+C:\Users\Szymon1\Desktop\komunikator\Klient\Klient\bin\Release\Klient.exe
+C:\Users\Szymon1\Desktop\komunikator\Klient\Klient\bin\Release\Klient.pdb
+C:\Users\Szymon1\Desktop\komunikator\Klient\Klient\obj\Release\Klient.csprojResolveAssemblyReference.cache
+C:\Users\Szymon1\Desktop\komunikator\Klient\Klient\obj\Release\Klient.Klient.resources
+C:\Users\Szymon1\Desktop\komunikator\Klient\Klient\obj\Release\Klient.Properties.Resources.resources
+C:\Users\Szymon1\Desktop\komunikator\Klient\Klient\obj\Release\Klient.csproj.GenerateResource.Cache

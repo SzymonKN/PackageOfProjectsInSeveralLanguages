@@ -1,0 +1,452 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="js/three.js"></script>
+       <script type="text/javascript" src="js/MyLight.js"></script>
+    <style>
+        body{margin:0;
+             overflow:hidden;
+             position:relative;
+        }
+        #panel{width:250px;
+              height:100vh;
+              background-color:#734d26;
+              position:absolute;
+            top:0;
+        }
+        input {
+            margin-left:50px;
+        }
+        #menu {
+            width:200px;
+            position:absolute;
+            right:0;  
+            height:100vh;
+            background-color:rgba(0, 0, 0,0.5);   
+            top:0;
+            text-align:center;
+            color:white;
+               
+        }
+        #addClone{
+            position:absolute;
+            top:0;
+            left:0;
+        }
+        #delClone{
+            position:absolute;
+            top:100px;
+            left:0;
+
+        }
+        #suwak_x{
+            position:relative;
+            width:200px;
+            height:20px;
+            background-color:rgba(193, 53, 53,0.8);
+        }
+        #thumb_x{
+            position:absolute;
+            width:20px;
+            height:20px;
+            text-align:center;
+            background-color:rgb(255, 0, 0);
+            left:0;
+        }
+        #suwak_y{
+            position:relative;
+            width:200px;
+            height:20px;
+            background-color:rgba(193, 53, 53,0.8);
+        }
+        #thumb_y{
+            position:absolute;
+            width:20px;
+            height:20px;
+            text-align:center;
+            background-color:rgb(0, 0, 255);
+            left:0;
+        }
+
+    </style>
+    <script>
+        window.addEventListener("load", onLoad, false);
+        function onLoad() {
+            var szer = window.innerWidth;
+            var wys = window.innerHeight;
+            var scene = new THREE.Scene();
+            var camera = new THREE.PerspectiveCamera(
+                     45, // kąt patrzenia kamery (FOV - field of view)
+                     window.innerWidth / window.innerHeight, // proporcje widoku
+                     0.1, // min renderowana odległość
+                     10000 // max renderowana odległość
+    );
+            var camera2= new THREE.PerspectiveCamera(
+                     45, // kąt patrzenia kamery (FOV - field of view)
+                     window.innerWidth / window.innerHeight, // proporcje widoku
+                     0.1, // min renderowana odległość
+                     10000 // max renderowana odległość
+    );
+
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setClearColor(0xffffff);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.autoClear = false;
+            var mat = new THREE.MeshPhongMaterial({
+              
+
+                side: THREE.DoubleSide, map: THREE.ImageUtils.loadTexture('img/trawa.jpg')
+            });
+            var mat_szkiel;
+            var geom = new THREE.PlaneBufferGeometry(4096, 4096);
+            var mesh = new THREE.Mesh(geom, mat);
+                mesh.rotateX(1.57);
+            //mesh.rotateY(obrot_w_radianach); 
+            //mesh.rotateZ(obrot_w_radianach); 
+            mesh.material.map.repeat.set(8, 8); //gęstość powtarzania
+            mesh.material.map.wrapS = mesh.material.map.wrapT = THREE.RepeatWrapping; // powtarzanie w obu kierunkach
+            scene.add(mesh);
+            document.getElementById("content").appendChild(renderer.domElement);
+
+            
+
+
+            
+
+            camera.position.x =1000;
+            camera.position.y = 500;
+            camera.position.z = 0;
+            camera2.position.x = 2000;
+            camera2.position.y = 800;
+            camera2.position.z = 0;
+        
+
+            var clock = new THREE.Clock();
+
+          
+            var tablica = [];
+          //  function ladowanie() {
+                var loader = new THREE.JSONLoader();
+                loader.load('js/tris.js', function (geometry, mat) {
+                    geometry.computeMorphNormals();
+
+                    //mat.morphNormals = true;
+
+                    mat_szkiel = new THREE.MeshPhongMaterial(
+                               {
+                                   map: THREE.ImageUtils.loadTexture("img/szkiel.png"),
+                                   morphTargets: true, //konieczne do animacji
+                                   morphNormals: true, //konieczne animacji
+                                   specular: 0xffffff,
+                                   shininess: 60,
+                                   shading: THREE.SmoothShading,
+                                   vertexColors: THREE.FaceColors
+                               });
+
+                    //mesh dla modelu musi być typu MorphAnimMesh
+
+                    meshModel = new THREE.MorphAnimMesh(geometry, mat_szkiel);
+                    meshModel.name = "name";
+                    //  meshModel.rotation.y = ??; // ustaw obrót modelu
+                    meshModel.position.y = 120; // ustaw pozycje modelu
+                    meshModel.scale.set(5, 5, 5); // ustaw skalę modelu
+                 //   meshModel.parseAnimations();
+                    //
+                    
+
+                    scene.add(meshModel);
+                    meshModel.parseAnimations();
+                    for (var key in meshModel.geometry.animations) {
+
+                        if (key === 'length' || !meshModel.geometry.animations.hasOwnProperty(key)) continue;
+                        tablica.push(key);
+                        console.log(key)
+                    }
+                   
+                    meshModel.playAnimation(tablica[1], 5);
+                  
+                    console.log(tablica.lenght);
+                    for (var i = 0; i < tablica.length; i++) {
+                        var menuu = document.createElement("div");
+                        menuu.innerHTML = tablica[i];
+                        menuu.id = i;
+                        console.log(i);
+                        menuu.addEventListener('click', function () {
+                            meshModel.playAnimation(tablica[this.id], 5);
+                            animacja = this.id;
+                            for (var k = 2; k < clones.length; k++)
+                                for (var i = 0; i < clones[k].length; i++)
+                                    clones[k][i].playAnimation(tablica[this.id], 5);
+                            console.log(this.id)
+
+                        })
+                            document.getElementById("menu").appendChild(menuu);
+                        //document.getElementById("menu").prependChild(menuu);
+                    }
+                   
+
+
+
+          //          var box = new THREE.Box3().setFromObject(meshModel);
+                    //console.log(box.min, box.max, box.size());
+                    //console.log(box.size().y);
+
+
+                });
+                camera.lookAt(mesh.position);
+                camera2.lookAt(mesh.position);
+
+
+               
+                
+            //tutaj dodaję do własnej tablicy tablica animacje modelu
+            //UWAGA: tutaj tworzę też butony do wyboru animacji
+
+                
+
+
+                var clonesCounter=1;
+                var clones = [];
+                var clone;
+            //   }
+                var animacja = 1;
+                document.getElementById("addClone").onclick = function () {
+                    clonesCounter++;
+                    clones[clonesCounter] = []
+                    for (var i = clonesCounter / 2 - clonesCounter; i < clonesCounter / 2; i++) {
+                        for (var j = clonesCounter / 2 - clonesCounter; j < clonesCounter / 2; j++) {
+                            if (i == clonesCounter / 2 - clonesCounter || j == clonesCounter / 2 - clonesCounter || i == clonesCounter / 2 - 1 || j == clonesCounter / 2 - 1) {
+                                var clone = meshModel.clone();
+                                scene.add(clone);
+                                clone.position.x = i * 260 + 120;
+                                clone.position.z = j * 260 + 120;
+                                clone.playAnimation(tablica[animacja], 5);
+                                clones[clonesCounter].push(clone);
+                              //  console.log(clones[2]);
+                            }
+                        }
+                    }
+                };
+                document.getElementById("delClone").onclick = function () {
+                    for (var i = 0; i < clones[clonesCounter].length; i++) {
+                        //console.log(clones[i]);
+                        scene.remove(clones[clonesCounter][i]);
+                    }
+                    clonesCounter--;
+                };
+
+
+                var lightx=0;
+                var tablica_swiatel = [];
+           
+                var addlight = document.getElementById("addlight");
+                addlight.addEventListener("click",function(){
+                  var  myLight = new MyLight().getLight();
+                    myLight.position.set(lightx, 300, 0);
+                    //    myLight.lookAt(meshModel);
+                    tablica_swiatel.push(myLight);
+                    scene.add(myLight);
+                    lightx += 30;
+                    mat.needsUpdate = true;
+                    mat_szkiel.needsUpdate = true;
+                });
+             
+                var interwal_x;
+              
+                document.getElementById("thumb_x").addEventListener("mousedown", ruszanie_x)
+                  function ruszanie_x() {
+                    document.getElementById('thumb_x').addEventListener("mousemove", zmiana_pozycji_x)
+                }
+                document.getElementById("thumb_x").addEventListener("mouseup", function () {
+                    document.getElementById('thumb_x').removeEventListener('mousemove',zmiana_pozycji_x);
+                })
+
+
+                function zmiana_pozycji_x() {
+                    var rect = document.getElementById("suwak_x").getBoundingClientRect();
+                    document.getElementById("thumb_x").style.left = parseInt(event.clientX - rect.left-10) + 'px';
+                    var dlugosc_tab = tablica_swiatel.length;
+                    tablica_swiatel[dlugosc_tab - 1].position.x = parseInt(document.getElementById("thumb_x").style.left)*3;
+                   // console.log(tablica_swiatel[dlugosc_tab - 1])
+                    // scene.add(tablica_swiatel[dlugosc_tab - 1]);
+                   // mat.needsUpdate = true;
+                  //  mat_szkiel.needsUpdate = true;
+                }
+
+             
+                document.getElementById("thumb_y").addEventListener("mousedown", ruszanie_y)
+                function ruszanie_y() {
+                    document.getElementById('thumb_y').addEventListener("mousemove", zmiana_pozycji_y)
+                }
+                function zmiana_pozycji_y() {
+                    var rect = document.getElementById("suwak_y").getBoundingClientRect();
+                    document.getElementById("thumb_y").style.left = parseInt(event.clientX - rect.left - 10) + 'px';
+                    var dlugosc_tab = tablica_swiatel.length;
+                    tablica_swiatel[dlugosc_tab - 1].position.y = parseInt(document.getElementById("thumb_y").style.left)*3;
+                   // console.log(tablica_swiatel[dlugosc_tab - 1])
+                    // scene.add(tablica_swiatel[dlugosc_tab - 1]);
+                   // mat.needsUpdate = true;
+                   // mat_szkiel.needsUpdate = true;
+                }
+
+                document.getElementById("thumb_y").addEventListener("mouseup", function () {
+                    document.getElementById('thumb_y').removeEventListener('mousemove', zmiana_pozycji_y);
+                })
+
+                document.getElementById("removelight").addEventListener("click", function () {
+                    var dlugosc_tab = tablica_swiatel.length;
+                    scene.remove(tablica_swiatel[dlugosc_tab - 1])
+                    tablica_swiatel.pop();
+                })
+                var DO_PRZODU;
+                var DO_LEWO;
+                var DO_PRAWO;
+                var licznik = 0;
+                document.addEventListener("keydown", function () {
+                     if ( event.which == 87 ) {
+                         //  event.preventDefault();
+                       //  console.log("ruszaj");
+                         DO_PRZODU = true;
+                     }
+                     if (event.which == 65) {
+                         //  event.preventDefault();
+                       //  console.log("ruszaj");
+                         DO_LEWO = true;
+                     }
+                     if (event.which == 68) {
+                         //  event.preventDefault();
+                       //  console.log("ruszaj");
+                         DO_PRAWO = true;
+                     }
+                     if (event.which == 75) {
+                         if (licznik % 2 == 0) {
+                             renderer.autoClear = true;
+                             licznik++;
+                         }
+                         else {
+                             renderer.autoClear = false;
+                             licznik++;
+                         }
+                     }
+                })
+
+                document.addEventListener("keyup", function () {
+                    if (event.which == 87) {
+                        //  event.preventDefault();
+                        //  console.log("ruszaj");
+                        DO_PRZODU = false;
+                        for (var k = 2; k < (clones.length) ; k++)
+                            for (var i = 0; i < clones[k].length; i++) {
+                                if (meshModel.position.distanceTo(clones[k][i].position) < 100) {
+
+                                    console.log("kolizja");
+                                    clones[k][i].material = mat;
+
+                                }
+                                console.log(clones.length);
+                            }
+                    }
+
+                        if (event.which == 65) {
+                            //  event.preventDefault();
+                            //   console.log("ruszaj");
+                            DO_LEWO = false;
+                        }
+                        if (event.which == 68) {
+                       
+                            DO_PRAWO = false;
+                        }
+                    
+                })
+
+              
+       
+
+
+             
+         
+            function animateScene() {
+               // mesh.rotation.y += 0.01;
+              requestAnimationFrame(animateScene);
+            //  renderer.render(scene, camera);
+              var delta = clock.getDelta();
+              if (DO_PRZODU == true) {
+                  meshModel.updateAnimation(delta * 1000);
+                  meshModel.translateX(-6);
+              }
+              if (DO_LEWO == true) {
+             //     meshModel.updateAnimation(delta * 1000);
+                  meshModel.rotation.y += 0.05;
+              }
+              if (DO_PRAWO == true) {
+              //    meshModel.updateAnimation(delta * 1000);
+                 
+                  meshModel.rotation.y -= 0.05;
+              }
+              for (var k = 2; k < clones.length ; k++)
+                 for (var i = 0; i < clones[k].length;i++)
+                      clones[k][i].updateAnimation(delta * 1000); 
+            //  camera1.aspect = 4/3; // aspect powinien wynikać z proporcji polowy ekranu
+           //   camera2.aspect = 16/9; // aspect powinien wynikać z proporcji polowy ekranu
+           //   camera1.updateProjectionMatrix();
+           //   camera2.updateProjectionMatrix();
+                // dla kamery 1
+            //  renderer.setViewport(1000,600,window.innerWidth,window.innerHeight);
+            //  renderer.render(scene, camera1);
+                //dla kamery 2
+           //   renderer.setViewport(-1000,500,(window.innerWidth/2),(window.innerHeight/2));
+            //  renderer.render(scene, camera2);
+              camera.aspect = szer / wys; // aspect powinien wynikać z proporcji polowy ekranu
+              camera2.aspect = szer / wys; // aspect powinien wynikać z proporcji polowy ekranu
+              camera.updateProjectionMatrix();
+              camera2.updateProjectionMatrix();
+                // dla kamery 1
+              renderer.setViewport(0, 0, szer/2, wys);
+              renderer.render(scene, camera);
+                //dla kamery 2
+              renderer.setViewport(szer/2, 0, szer/2, wys);
+              renderer.render(scene, camera2);
+
+
+
+
+              var camVect = new THREE.Vector3(100, 0, 0);
+              var camPos = camVect.applyMatrix4(meshModel.matrixWorld);
+
+              camera.position.x = camPos.x;
+              camera.position.y = camPos.y;
+              camera.position.z = camPos.z;
+
+              camera.lookAt(meshModel.position);
+
+
+            }
+
+           // renderer.autoClear = false;
+
+            animateScene();
+        }
+
+        
+
+    </script>
+
+
+
+
+
+</head>
+<body>
+    <div id="content"></div>
+   <div id="menu">
+       <div id="addlight">Add Light</div>
+       <div id="removelight">Remove Light</div>
+       <div id="swiec">Zacznij Świecić</div>
+       <div id="suwak_x"><div id="thumb_x"></div></div>
+       <div id="suwak_y"><div id="thumb_y"></div></div>
+   </div>
+    <div id="addClone">DODAJ KLONY</div>
+    <div id="delClone">USUN KLONY</div>
+</body>
+</html>

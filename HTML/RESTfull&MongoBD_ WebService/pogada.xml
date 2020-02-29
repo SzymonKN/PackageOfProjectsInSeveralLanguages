@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="pogoda.xsl"?>
+<pogoda>
+    <miasto>
+        <nazwaMiasta>Kraków</nazwaMiasta>
+        <pytanie>
+            <nazwa_pytania>Data</nazwa_pytania>
+        </pytanie>
+        <pytanie>
+            <nazwa_pytania>Najniższa temperatura dobowa</nazwa_pytania>
+        </pytanie>
+		<pytanie>
+            <nazwa_pytania>Najwyższa temperatura dobowa</nazwa_pytania>
+        </pytanie>
+		
+    </miasto>
+    <miasto>
+        <nazwaMiasta>Katowice</nazwaMiasta>
+        <pytanie>
+            <nazwa_pytania>Data</nazwa_pytania>
+        </pytanie>
+        <pytanie>
+            <nazwa_pytania>Najniższa temperatura dobowa</nazwa_pytania>
+        </pytanie>
+		<pytanie>
+            <nazwa_pytania>Najwyższa temperatura dobowa</nazwa_pytania>
+        </pytanie>
+		
+    </miasto>
+    <miasto>
+        <nazwaMiasta>Zakopane</nazwaMiasta>
+        <pytanie>
+            <nazwa_pytania>Data</nazwa_pytania>
+        </pytanie>
+        <pytanie>
+            <nazwa_pytania>Najniższa temperatura dobowa</nazwa_pytania>
+        </pytanie>
+		<pytanie>
+            <nazwa_pytania>Najwyższa temperatura dobowa</nazwa_pytania>
+        </pytanie>
+		
+    </miasto>
+</pogoda>

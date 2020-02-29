@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="author" content="Szymon Nowak">
+  <link href="https://fonts.googleapis.com/css?family=Exo|Montserrat|Rajdhani&display=swap" rel="stylesheet"> 
+  <title>Dokumentacja</title>
+  <link rel="stylesheet" type="text/css" href="styl.css">
+  <style>
+    
+
+    h1 {
+      text-align: center;
+    }
+
+     a {
+      color:black;
+      text-decoration: none;
+      
+     font-family: Montserrat;
+
+    
+    }
+
+    h3,
+    h2 {
+      color: rgb(139, 140, 235);
+    }
+    #allPages{
+        text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+    <header>
+        
+        <nav class="pasek_header">
+            <ul>
+                <li id="main_Page"><p><a href="index.html">Dane Pogodowe</a></p></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="allPages">
+  <h1>Dokumentacja</h1>
+  
+    <h2>Temat projektu</h2>
+    <p>
+        Tematem projektu jest serwis zbierający dane pogodowe z trzech miast : Krakowa,Katowic i Zakopanego. <br /><br />
+        Każdy formularz składa się z : miasta, daty, najniższej temperatury dobowej, najwyższej temperatury dobowej<br /><br />
+        Niezalogowany użytkownik może wprowadzać dane i są one zapisywane po stronie przeglądarki lokalnie. <br /><br />
+        Zalogowany użytkownik może wprowadzać dane bezpośrednio na serwer, a także zsynchronizować dane za pomocą przycisku w menu.<br />
+        Podczas synchronizacji dane z przeglądarki są usuwane i wysyłane do bazy Mongo na pascalu.<br />
+        Zalogowany użytkownik może także wyświetlać wykresy temperatur z ostatniego tygodnia na podstawie danych w bazie Mongo.<br />
+        Jeśli w bazie danych nie ma informacji na temat temperatury danego dnia na wykresie, wtedy punkty nie są zaznaczane.<br />
+        Jeśli dla danego dnia kilka osób zrobiło wpis, wtedy liczona jest średnia arytmetyczna wszystkich temperatur.
+        <br />
+        <br />
+        Aby się zalogować należy użyć następujących danych: <br />
+        login : admin1<br />
+        hasło : 123<br /><br />
+        Podczas poprawnego zalogowania zapisywana jest informacja w ciasteczku przeglądarki o sesji i wygasa ono po 1 godzinie.
+
+    </p>
+
+
+    <h2>Technologia</h2>
+    <p>
+        Do stworzenia serwisu wykorzystano technologię RESTful.<br />
+        Języki: HTML5, JavaSript, CSS3 , PHP<br />
+        Bazy Danych : MongoDB , IndexedDB<br />
+        
+    </p>
+
+    <h2>Źródła</h2>
+
+    <a href="https://1freewallpapers.com/drops-glass-rain-window-moisture-blur/pl">Background</a><br />
+    <a href="http://orion.fis.agh.edu.pl/~grazyna/TI/T_11.php">Mongo</a><br />
+    <a href="  http://orion.fis.agh.edu.pl/~grazyna/TI/T_12_new.php">RESTful</a><br />
+    <a href="https://www.w3schools.com/">JSON , JavaSript, HTML5 , CSS3</a><br />
+    <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB">IndexedDB</a><br />
+    <a href="https://canvasjs.com/">Biblioteka do tworzenia wykresów</a><br />
+  
+</div>
+<footer>
+    <p>Szymon Nowak 2020 &copy;</p>
+</footer>
+</body>
+
+</html>

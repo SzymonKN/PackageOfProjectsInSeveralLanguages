@@ -1,0 +1,196 @@
+
+body{
+    margin:0;
+    padding: 0;
+   
+    background-image: url("back.jpg"); 
+   
+    background-size: 100% ;
+    background-color:rgba(255, 255, 255,0.8);
+    font-family:Rajdhani;
+    width: 100%;
+    height: 100%;
+}
+header{
+    width: 100%;
+    height: 70px;
+    position: relative;
+}
+.pasek_header{
+    position:fixed;
+    top:0;
+    width:100%;
+    padding: 0;
+    margin: auto;
+    height: 70px;
+    background: rgb(255,255,255);
+    -webkit-box-shadow: 0px 2px 13px -2px rgba(200,161,237,0.5);
+-moz-box-shadow: 0px 2px 13px -2px rgba(200,161,237,0.5);
+box-shadow: 0px 2px 13px -2px rgba(200,161,237,0.5);  
+
+}
+
+.pasek_header ul {
+    list-style-type: none;
+    height: 100%;
+    padding: 10;
+    margin: 0;
+}
+.pasek_header ul li{
+    display: block;
+    width:200px;
+    height: 70px;
+    text-align: center;
+    transition: 0.8s;
+    cursor: pointer;
+    float:right;
+   
+    margin-top: 10px;
+    
+}
+#main_Page{
+    float:left;
+    font-family: Montserrat;
+    margin-left: 200px;
+}
+
+.pasek_header ul li:after {
+  display: block;
+  content: '';
+  border-bottom: solid 1px #00ddff;  
+  transform: scaleX(0);  
+  transition: transform 250ms ease-in-out;
+}
+.pasek_header ul li:hover:after { transform: scaleX(1); }
+
+
+
+#allPages{
+  
+    width: 60%;
+    margin: 0 auto;
+    background-color:rgba(255, 255, 255,0.8);
+    height: 92.5%;
+    border-left: 1px solid rgb(175, 219, 245);
+    border-right: 1px solid rgb(175, 219, 245);
+    position: absolute;
+    left:20%;
+    z-index: -1;
+}
+footer{
+    position: fixed;
+    bottom: -25px;
+    width:100%;
+   
+    height:40px;
+    text-align: center;
+    border-top: 1px solid black;
+  
+    border-radius:0px;
+    padding-bottom: 35px;
+    background-color:  rgba(0, 149, 230,0.74);
+}
+
+#defaultPage{
+    text-align: center;
+
+}
+#defaultPage a{
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left:10%;
+}
+#defaultPage h1{
+    margin-bottom:100px ;
+    color:rgba(0, 149, 230,1);
+    font-family: Montserrat;
+}
+#danePogodoweFormularz form{
+    margin-top: 10%;
+    
+}
+#danePogodoweFormularz h1{
+    margin-top: 5%;
+    color:rgba(0, 149, 230,1);
+    font-family: Montserrat;
+    text-align: center;
+}
+#danePogodoweFormularz input, select,span{
+    margin: 10px auto;
+    width: 20%;
+    margin-left: 40%;
+    height: 20px;
+}
+#danePogodoweFormularz input[type="button"] {
+    border:none;
+    cursor: pointer;
+    margin-top: 30px;
+    height: 35px;
+    background-color:  rgba(0, 149, 230,0.85);
+    transition: 1s;
+    border-radius: 5px;
+    font-family: Montserrat;
+}
+#danePogodoweFormularz input[type="button"]:hover{
+    border:none;
+    cursor: pointer;
+    margin-top: 30px;
+    height: 35px;
+    background-color:  rgba(0, 149, 230,0.6);
+    border-radius: 10px;
+    
+}
+#resultsData{
+    display: none;
+}
+#log_Out{
+    display: none;
+}
+#synchronize{
+    display: none;
+}
+#wynikiOnline{
+    display: none;
+}
+#logowanieDiv form{
+    text-align: center;
+   width:200px;
+    height: 400px;
+    margin: 100px auto;
+}
+#logowanieDiv form input{
+    height: 30px;
+    width:100%;
+    border-radius: 10px;
+    
+ }
+#logowanieDiv form input[type="button"]{
+    margin-top:50px ;
+    width:100%;
+    height: 50px;
+    cursor: pointer;
+    border:none;
+    transition: 0.5s;
+    background-color:  rgba(0, 149, 230,0.85);
+ }
+
+ #logowanieDiv form input[type="button"]:hover{
+    margin-top:50px ;
+    
+    width:100%;
+   
+    cursor: pointer;
+    border:none;
+ 
+    background-color:  rgba(0, 149, 230,0.6);
+    -webkit-box-shadow: 0px 0px 10px 1px rgba(48,142,156,0.72);
+-moz-box-shadow: 0px 0px 10px 1px rgba(48,142,156,0.72);
+box-shadow: 0px 0px 10px 1px rgba(48,142,156,0.72); }
+#wrong_pass{
+    color:red;
+    font-size:20px;
+    font-weight: bold;
+}

@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\himon\Desktop\Banner\src\main\scala\hello\ScalaFXBanerMaker.scala:121:18: overloaded method constructor File with alternatives:[0m
+[0m[[0m[31merror[0m] [0m[0m  (x$1: java.net.URI)java.io.File <and>[0m
+[0m[[0m[31merror[0m] [0m[0m  (x$1: String)java.io.File[0m
+[0m[[0m[31merror[0m] [0m[0m cannot be applied to (java.io.File)[0m
+[0m[[0m[31merror[0m] [0m[0m      val file = new File(selectedFile)[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

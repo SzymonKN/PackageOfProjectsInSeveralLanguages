@@ -1,0 +1,8 @@
+D:\P.Koszałka\Projekt-Komunikator\Serwer\Serwer\bin\Debug\Serwer.exe
+D:\P.Koszałka\Projekt-Komunikator\Serwer\Serwer\bin\Debug\Serwer.pdb
+D:\P.Koszałka\Projekt-Komunikator\Serwer\Serwer\obj\Debug\Serwer.csprojResolveAssemblyReference.cache
+D:\P.Koszałka\Projekt-Komunikator\Serwer\Serwer\obj\Debug\Serwer.Properties.Resources.resources
+D:\P.Koszałka\Projekt-Komunikator\Serwer\Serwer\obj\Debug\Serwer.frmSerwer.resources
+D:\P.Koszałka\Projekt-Komunikator\Serwer\Serwer\obj\Debug\Serwer.csproj.GenerateResource.Cache
+D:\P.Koszałka\Projekt-Komunikator\Serwer\Serwer\obj\Debug\Serwer.exe
+D:\P.Koszałka\Projekt-Komunikator\Serwer\Serwer\obj\Debug\Serwer.pdb

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Dane Pogodowe</title>
+    <meta name="author" content="Szymon Nowak">
+    <link href="https://fonts.googleapis.com/css?family=Exo|Montserrat|Rajdhani&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="styl.css">
+    <script src="js/index.js"></script>
+    <script src="js/dbOffline.js"></script>
+    <script src="js/rest.js"></script>
+    
+</head>
+<body onload="loadBody()">
+    <header>
+        
+        <nav class="pasek_header">
+            <ul>
+                <li id="main_Page" onclick="mainPage()"><p>Dane Pogodowe</p></li>
+                <li id="log_In" onclick="logIn()"><p>Zaloguj Się</p></li>
+                <li id="log_Out" onclick="logOut()"><p>Wyloguj Się</p></li>
+                <li id="synchronize" onclick="sendToMongoDB()"><p>Synchronizuj</p></li>
+                <li id="add_Weather" onclick="addWeather()"><p>Dodaj dane</p></li>
+                <li id="resultsData" onclick="analizeData()"><p>Wyniki</p></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="allPages">
+    <div id="defaultPage">
+        <h1>Serwis zbierający dane pogodowe<br/> z trzech miast :<br /> Krakowa, Katowic i Zakopanego</h1>
+        <br />
+        <a class="mainDocs" href="pogada.xml">Szablon przedstawiający zawartość formularza</a>
+        <a class="mainDocs" href="dokumentacja.html">Dokumentacja</a>
+    </div>
+    <div id="danePogodoweFormularz" class="hide_Main">
+        <h1>Uzupełnij poniższe dane</h1>
+        <form id="formWeather" method="POST">
+            <span>Miasto</span>
+        <br/>
+        <select name="miasto" id="miastoSelect">
+            <option value="Krakow">Kraków</option>
+            <option value="Katowice">Katowice</option>
+            <option value="Zakopane">Zakopane</option>
+        </select>
+        <br/>
+        <span>Data </span>
+        <br/>
+        <input type="date" name="data" id="data_Dane" required />
+        <br/>
+        <span>Najniższa temperatura</span>
+        <br/>
+        <input type="number" name="lowestTemp" id="temp_low" required />
+        <br/>
+        <span>Najwyższa temperatura</span>
+        <br/>
+        <input type="number" name="highestTemp" id="temp_high" required />
+        <br/>
+        
+        <input type="button" value="Wyślij!" name="sendWeather" onclick="insertWeatherValidate(this)"/>
+    </form>
+    </div>
+    <div id="logowanieDiv" class="hide_Main">
+        <form>
+        <p>Login</p>
+        <input type="text" name="user" id="Username" required/>
+        <p>Hasło</p>
+        <input type="password" name="pass" id="Password" required/>
+      
+        <input type="button" onclick="logIntoDatabase()" value="Zaloguj Się!"/>
+        <p id="wrong_pass"></p>
+        </form>
+    </div>
+    <div id="wynikiOnline">
+        <div id="chartContainer" style="height: 350px; width: 100%; margin: 50px 0;"></div>
+        
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <div id="chartContainerLow" style="height: 350px; width: 100%;"></div>
+    </div>
+</div>
+    <footer>
+        <p>Szymon Nowak 2020 &copy;</p>
+    </footer>
+</body>
+</html>

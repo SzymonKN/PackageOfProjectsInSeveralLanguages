@@ -1,0 +1,8 @@
+C:\Users\Szymon1\Desktop\komunikator\Serwer\Serwer\obj\Release\Serwer.exe
+C:\Users\Szymon1\Desktop\komunikator\Serwer\Serwer\obj\Release\Serwer.pdb
+C:\Users\Szymon1\Desktop\komunikator\Serwer\Serwer\bin\Release\Serwer.exe
+C:\Users\Szymon1\Desktop\komunikator\Serwer\Serwer\bin\Release\Serwer.pdb
+C:\Users\Szymon1\Desktop\komunikator\Serwer\Serwer\obj\Release\Serwer.csprojResolveAssemblyReference.cache
+C:\Users\Szymon1\Desktop\komunikator\Serwer\Serwer\obj\Release\Serwer.Properties.Resources.resources
+C:\Users\Szymon1\Desktop\komunikator\Serwer\Serwer\obj\Release\Serwer.frmSerwer.resources
+C:\Users\Szymon1\Desktop\komunikator\Serwer\Serwer\obj\Release\Serwer.csproj.GenerateResource.Cache

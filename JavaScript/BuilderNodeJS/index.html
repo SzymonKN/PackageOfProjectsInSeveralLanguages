@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript" src="Main.js"></script>
+    <script type="text/javascript" src="three.js"></script>
+   <script type="text/javascript" src="arial.js"></script>
+    <script type="text/javascript" src="Intro.js"></script>
+    <script type="text/javascript" src="ElementSiatki.js"></script>
+    <script type="text/javascript" src="Klocek.js"></script>
+    <script type="text/javascript" src="Game.js"></script>
+    <script type="text/javascript" src="Dobudowanie.js"></script>
+
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <style>
+        body {
+        overflow:hidden;
+        margin:0;
+        }
+    </style>
+    <script>
+        var main;
+        window.addEventListener("load",
+        function () {
+            main = new Main();
+        })
+        window.addEventListener("load", function () {
+            var client = io();
+            client.on("onconnect", function (data) {
+              //  alert(data.clientName)
+            })
+            document.addEventListener("mousemove", function (e) {
+                client.emit("mouseposition", {
+                    posX: e.clientX,
+                    posY: e.clientY
+                })
+               
+            })
+            client.on("mouseposition", function (data) {
+              //  console.log(data.posX + " - " + data.posY)
+            })
+          
+
+        })
+
+        
+
+    </script>
+</head>
+<body>
+    <div id="content"></div>
+</body>
+</html>

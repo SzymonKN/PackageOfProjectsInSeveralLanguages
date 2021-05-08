@@ -1,3 +1,3 @@
 # Projects
-All my projects in my educational progress
 
+Simple projects created in time of my educational process.
